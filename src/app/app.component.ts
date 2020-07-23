@@ -24,12 +24,16 @@ export class AppComponent implements OnInit {
   public chartLegend = true;
   public colors: any[] = [{ backgroundColor: '#5491DA' }, { backgroundColor: '#E74C3C' }, { backgroundColor: '#82E0AA' }, { backgroundColor: '#E5E7E9' }];
 
+  // signalRService;
+
   constructor(public signalRService: SignalRService, private http: HttpClient) { }
 
   ngOnInit() {
-    this.signalRService.startConnection();
-    this.signalRService.addTransferChartDataListener();
-    this.startHttpRequest();
+    this.signalRService.startWorker();
+    // this.signalRService.startConnection();
+    // this.signalRService.addTransferChartDataListener();
+    // this.signalRService = Worker;
+    // this.startHttpRequest();
   }
 
   private startHttpRequest = () => {
@@ -40,14 +44,3 @@ export class AppComponent implements OnInit {
   }
 }
 
-if (typeof Worker !== 'undefined') {
-  // Create a new
-  const worker = new Worker('./app.worker', { type: 'module' });
-  worker.onmessage = ({ data }) => {
-    console.log(`page got message: ${data}`);
-  };
-  worker.postMessage('hello');
-} else {
-  // Web Workers are not supported in this environment.
-  // You should add a fallback so that your program still executes correctly.
-}

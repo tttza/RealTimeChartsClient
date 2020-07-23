@@ -31,7 +31,11 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./node_modules/chart.js/dist/Chart.js"
+              "./node_modules/chart.js/dist/Chart.js",
+              {
+                "input": "./node_modules/@microsoft/signalr/dist/webworker/signalr.js",
+                "bundleName": "signalR"
+              }
             ],
             "webWorkerTsConfig": "tsconfig.worker.json"
           },
