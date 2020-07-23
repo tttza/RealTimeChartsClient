@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as signalR from '@microsoft/signalr';
+// import * as signalR from '@microsoft/signalr';
+import * as signalR from 'node_modules/@microsoft/signalr/dist/webworker/signalr';
 import { ChartModel } from '../_interfaces/chart-model';
 
 @Injectable({
